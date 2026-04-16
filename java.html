@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Resources</title>
+
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- 🔷 NAVBAR -->
+<div class="intro">
+
+    <a href="home.html" class="logo-container">
+        <div class="logo-mark">Y6</div>
+        <div class="logo-text">Y6 Resource</div>
+    </a>
+
+    <div style="display: flex; gap: 20px; align-items: center;">
+        <button class="icon-btn" id="theme-toggle">🌙</button>
+    </div>
+
+</div>
+
+<!-- 🔷 HEADER -->
+<section class="header">
+    <h1>Java Programming</h1>
+    <p>Learn Java from basics to advanced with structured resources.</p>
+</section>
+
+<!-- 🔍 SEARCH -->
+<div class="controls">
+    <input type="text" id="search" placeholder="Search topics...">
+</div>
+
+<!-- 📚 CONTENT -->
+<div class="container">
+
+    <!-- 📘 NOTES -->
+    <div class="section">
+        <h2>📘 Notes</h2>
+        <div class="cards">
+
+            <div class="card" data-title="java basics"
+                 onclick="openLink('https://www.tutorialspoint.com/java/java_tutorial.pdf')">
+                Java Basics
+            </div>
+
+            <div class="card" data-title="oop concepts"
+                 onclick="openLink('https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/')">
+                OOP Concepts
+            </div>
+
+            <div class="card" data-title="collections"
+                 onclick="openLink('https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html')">
+                Collections
+            </div>
+
+            <div class="card" data-title="exception handling"
+                 onclick="openLink('https://www.w3schools.com/java/java_try_catch.asp')">
+                Exception Handling
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🎥 VIDEOS -->
+    <div class="section">
+        <h2>🎥 Video Tutorials</h2>
+        <div class="cards">
+
+            <div class="card" data-title="java full course"
+                 onclick="openLink('https://www.youtube.com/watch?v=eIrMbAQSU34')">
+                Java Full Course
+            </div>
+
+            <div class="card" data-title="oop in java"
+                 onclick="openLink('https://www.youtube.com/watch?v=UmnCZ7-9yDY')">
+                OOP in Java
+            </div>
+
+            <div class="card" data-title="dsa with java"
+                 onclick="openLink('https://www.youtube.com/watch?v=RBSGKlAvoiM')">
+                DSA with Java
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 💻 PRACTICE -->
+    <div class="section">
+        <h2>💻 Practice Problems</h2>
+        <div class="cards">
+
+            <div class="card" data-title="basic programs"
+                 onclick="openLink('https://www.w3resource.com/java-exercises/')">
+                Basic Programs
+            </div>
+
+            <div class="card" data-title="pattern problems"
+                 onclick="openLink('https://www.geeksforgeeks.org/java-pattern-programs/')">
+                Pattern Problems
+            </div>
+
+            <div class="card" data-title="interview questions"
+                 onclick="openLink('https://www.interviewbit.com/java-interview-questions/')">
+                Interview Questions
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🚀 PROJECTS -->
+    <div class="section">
+        <h2>🚀 Projects</h2>
+        <div class="cards">
+
+            <div class="card" data-title="student management"
+                 onclick="openLink('https://github.com/topics/student-management-system-java')">
+                Student Management
+            </div>
+
+            <div class="card" data-title="banking system"
+                 onclick="openLink('https://github.com/topics/banking-system-java')">
+                Banking System
+            </div>
+
+            <div class="card" data-title="library system"
+                 onclick="openLink('https://github.com/topics/library-management-system-java')">
+                Library System
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- About -->
+        <div class="footer-box">
+            <h3>Y6 Resource</h3>
+            <p>
+                A platform to learn programming and development with structured
+                resources including Java, Web Development, DSA, and more.
+            </p>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-box">
+            <h3>Follow Me</h3>
+            <div class="social">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Y6 Resource | All Rights Reserved</p>
+    </div>
+
+</footer>
+
+<!-- 🔷 SCRIPT -->
+<script>
+
+function openLink(url) {
+    window.open(url, "_blank");
+}
+
+// 🔍 SEARCH FUNCTION
+const search = document.getElementById("search");
+
+search.addEventListener("input", () => {
+    const value = search.value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        const title = card.dataset.title;
+        card.style.display = title.includes(value) ? "block" : "none";
+    });
+});
+
+</script>
+
+<script>
+
+// Get button
+const toggleBtn = document.getElementById("theme-toggle");
+
+// Check saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    toggleBtn.textContent = "☀️";
+}
+
+// Toggle theme
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+    } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+    }
+});
+
+</script>
+
+</body>
+</html>

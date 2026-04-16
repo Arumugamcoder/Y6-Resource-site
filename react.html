@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Resources</title>
+
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- 🔷 NAVBAR -->
+<div class="intro">
+
+    <a href="home.html" class="logo-container">
+        <div class="logo-mark">Y6</div>
+        <div class="logo-text">Y6 Resource</div>
+    </a>
+
+    <div style="display: flex; gap: 20px; align-items: center;">
+        <button class="icon-btn" id="theme-toggle">🌙</button>
+    </div>
+
+</div>
+
+<!-- 🔷 HEADER -->
+<section class="header">
+    <h1>React Development</h1>
+    <p>Learn React to build modern, dynamic and scalable web applications.</p>
+</section>
+
+<!-- 🔍 SEARCH -->
+<div class="controls">
+    <input type="text" id="search" placeholder="Search topics...">
+</div>
+
+<!-- 📚 CONTENT -->
+<div class="container">
+
+    <!-- 📘 NOTES -->
+    <div class="section">
+        <h2>📘 Notes</h2>
+        <div class="cards">
+
+            <div class="card" data-title="react basics"
+                 onclick="openLink('https://react.dev/learn')">
+                React Basics
+            </div>
+
+            <div class="card" data-title="components and props"
+                 onclick="openLink('https://react.dev/learn/passing-props-to-a-component')">
+                Components & Props
+            </div>
+
+            <div class="card" data-title="react hooks"
+                 onclick="openLink('https://react.dev/reference/react')">
+                React Hooks
+            </div>
+
+            <div class="card" data-title="react router"
+                 onclick="openLink('https://reactrouter.com/en/main')">
+                React Router
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🎥 VIDEOS -->
+    <div class="section">
+        <h2>🎥 Video Tutorials</h2>
+        <div class="cards">
+
+            <div class="card" data-title="react full course"
+                 onclick="openLink('https://www.youtube.com/watch?v=bMknfKXIFA8')">
+                React Full Course
+            </div>
+
+            <div class="card" data-title="react crash course"
+                 onclick="openLink('https://www.youtube.com/watch?v=w7ejDZ8SWv8')">
+                React Crash Course
+            </div>
+
+            <div class="card" data-title="react hooks tutorial"
+                 onclick="openLink('https://www.youtube.com/watch?v=O6P86uwfdR0')">
+                React Hooks Tutorial
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 💻 PRACTICE -->
+    <div class="section">
+        <h2>💻 Practice Problems</h2>
+        <div class="cards">
+
+            <div class="card" data-title="react exercises"
+                 onclick="openLink('https://www.freecodecamp.org/news/tag/react/')">
+                React Exercises
+            </div>
+
+            <div class="card" data-title="frontend challenges"
+                 onclick="openLink('https://www.frontendmentor.io/challenges')">
+                Frontend Challenges
+            </div>
+
+            <div class="card" data-title="react interview questions"
+                 onclick="openLink('https://www.interviewbit.com/react-interview-questions/')">
+                Interview Questions
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 🚀 PROJECTS -->
+    <div class="section">
+        <h2>🚀 Projects</h2>
+        <div class="cards">
+
+            <div class="card" data-title="react todo app"
+                 onclick="openLink('https://github.com/topics/react-todo-app')">
+                To-Do App
+            </div>
+
+            <div class="card" data-title="react ecommerce app"
+                 onclick="openLink('https://github.com/topics/react-ecommerce')">
+                E-commerce App
+            </div>
+
+            <div class="card" data-title="react dashboard"
+                 onclick="openLink('https://github.com/topics/react-dashboard')">
+                Admin Dashboard
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- About -->
+        <div class="footer-box">
+            <h3>Y6 Resource</h3>
+            <p>
+                A platform to learn programming and development with structured
+                resources including Java, Web Development, DSA, and more.
+            </p>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-box">
+            <h3>Follow Me</h3>
+            <div class="social">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Y6 Resource | All Rights Reserved</p>
+    </div>
+
+</footer>
+
+
+<!-- 🔷 SCRIPT -->
+<script>
+
+function openLink(url) {
+    window.open(url, "_blank");
+}
+
+// 🔍 SEARCH FUNCTION
+const search = document.getElementById("search");
+
+search.addEventListener("input", () => {
+    const value = search.value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        const title = card.dataset.title;
+        card.style.display = title.includes(value) ? "block" : "none";
+    });
+});
+
+</script>
+
+<script>
+
+// Get button
+const toggleBtn = document.getElementById("theme-toggle");
+
+// Check saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    toggleBtn.textContent = "☀️";
+}
+
+// Toggle theme
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+    } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+    }
+});
+
+</script>
+
+
+
+</body>
+</html>

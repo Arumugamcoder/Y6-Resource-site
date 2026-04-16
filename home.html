@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y6 Resource</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+        <div class="intro">
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+
+                <a href="home.html" class="logo-container">
+                <div class="logo-mark">Y6</div>
+                <div class="logo-text">Y6 Resource</div>
+                </a>
+
+            </div>
+
+            <div style="display: flex; gap: 20px; align-items: center;">
+               <button class="icon-btn" id="theme-toggle">🌙</button>
+            </div>
+        </div>
+
+    <div class="page">
+        <div class="overview">
+            <h3>Welcome</h3>
+            <h1>Y6 Resource Collelction</h1>
+            <p>This platform is built to empower learners by bringing together high-quality technical resources in one place.
+From core programming with Java to modern web development using HTML, CSS, JavaScript, React, Node.js, and Angular, every topic is carefully organized for clarity.
+It also dives deep into essential areas like MongoDB, SQL, and Data Structures & Algorithms to strengthen problem-solving skills.
+The goal is to simplify complex concepts and provide a structured path for consistent learning and growth.
+Whether you're starting out or aiming to master development, this space is your companion to build real-world knowledge and confidence.
+</p>
+
+        </div>
+        <div class="tech-title">Technical Resource</div>
+        <div class="grids">
+
+            <a href="java.html">
+            <div class="one">
+                <h2>JAVA</h2>
+            </div>
+            </a>
+
+            <a href="dsa.html">
+            <div class="two">
+                <h2>DSA</h2>
+            </div>
+            </a>
+
+            <a href="html.html">
+            <div class="three">
+                <h2>HTML</h2>
+            </div>
+            </a>
+
+            <a href="css.html">
+            <div class="four">
+                <h2>CSS</h2>
+            </div>
+            </a>
+
+            <a href="javascript.html">
+            <div class="five">
+                <h2>JAVA SCRIPT</h2>
+            </div>
+            </a>
+
+            <a href="react.html">
+            <div class="six">
+                <h2>REACT</h2>
+            </div>
+            </a>
+
+            <a href="node.html">
+            <div class="seven">
+                <h2>NODE</h2>
+            </div>
+            </a>
+
+            <a href="express.html">
+            <div class="eight">
+                <h2>EXPRESS</h2>
+            </div>
+            </a>
+
+            <a href="anguler.html">
+            <div class="nine">
+                <h2>ANGULER</h2>
+            </div>
+            </a>
+
+            <a href="sql.html">
+            <div class="ten">
+                <h2>SQL</h2>
+            </div>
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- 🔻 FOOTER -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- About -->
+        <div class="footer-box">
+            <h3>Y6 Resource</h3>
+            <p>
+                A platform to learn programming and development with structured
+                resources including Java, Web Development, DSA, and more.
+            </p>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-box">
+            <h3>Follow Me</h3>
+            <div class="social">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Y6 Resource | All Rights Reserved</p>
+    </div>
+
+</footer>
+
+
+
+    <script>
+
+// Get button
+const toggleBtn = document.getElementById("theme-toggle");
+
+// Check saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    toggleBtn.textContent = "☀️";
+}
+
+// Toggle theme
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        toggleBtn.textContent = "☀️";
+    } else {
+        localStorage.setItem("theme", "light");
+        toggleBtn.textContent = "🌙";
+    }
+});
+
+</script>
+</body>
+</html>
